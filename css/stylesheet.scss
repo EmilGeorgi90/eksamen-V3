@@ -1,0 +1,44 @@
+@import url(_mixins.scss);
+@import url(_variable.scss);
+
+body{ 
+    .header{
+        .header-top-left{
+            display: flex;
+            .header-top-left-button{
+                line-height: 20px;
+                background-color: darken(#F7F7F7, 2%);
+                box-shadow: none;
+                border: 1px solid darken(#F7F7F7, 5%);
+               .header-top-left-img{
+                padding-top: 3.8px;
+                padding-right: 3px;
+                width: 20px;
+                }
+            }
+            .header-top-left-button:nth-child(1){
+                border-right: 2px solid darken(#F7F7F7, 10%);
+            }
+        }
+        .header-right-varer{
+            align-items: center;
+        .header-top-right form .search, .header-top-right-submit{
+            border: 1px solid darken(#F7F7F7 , 10%);
+            padding: 3px;
+        }
+            form .header-right-varer-cart{
+                background-color: lighten(black, 10%);
+                color: white;
+                padding: 15px;
+                font-size: 1.1rem;
+        }
+        .header-right-varer-button{
+            background-color: lighten(black, 25%);
+            font-size: 1.1rem;
+            margin: 0;
+            padding: 15px;
+            color: white;
+        }
+    }
+}
+}

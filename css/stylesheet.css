@@ -1,0 +1,32 @@
+@import url(_mixins.scss);
+@import url(_variable.scss);
+body .header .header-top-left {
+  display: flex; }
+  body .header .header-top-left .header-top-left-button {
+    line-height: 20px;
+    background-color: #f2f2f2;
+    box-shadow: none;
+    border: 1px solid #eaeaea; }
+    body .header .header-top-left .header-top-left-button .header-top-left-img {
+      padding-top: 3.8px;
+      padding-right: 3px;
+      width: 20px; }
+  body .header .header-top-left .header-top-left-button:nth-child(1) {
+    border-right: 2px solid #dedede; }
+
+body .header .header-right-varer {
+  align-items: center; }
+  body .header .header-right-varer .header-top-right form .search, body .header .header-right-varer .header-top-right-submit {
+    border: 1px solid #dedede;
+    padding: 3px; }
+  body .header .header-right-varer form .header-right-varer-cart {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 15px;
+    font-size: 1.1rem; }
+  body .header .header-right-varer .header-right-varer-button {
+    background-color: #404040;
+    font-size: 1.1rem;
+    margin: 0;
+    padding: 15px;
+    color: white; }

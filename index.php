@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="css/main.css">
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
 </head>
 
 <body>
@@ -26,15 +26,16 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
     <div class="container-fluid bg-faded">
+
+    <header class="header">
         <div class="container m-auto">
-            <header class="header">
                 <div class="row col-12">
                     <div class="header-top-left">
-                        <button class="header-top-left-button" disabled="disabled"><img src="img/ikon.png" alt="Danmark's flag" class="header-top-left-img"><p class="header-top-left-p-icon-span">dansk</p></button>
+                        <button class="header-top-left-button d-flex" disabled="disabled"><img src="img/ikon.png" alt="Danmark's flag" class="header-top-left-img"><p class="header-top-left-p-icon-span">dansk</p></button>
                         <button class="header-top-left-button" disabled="disabled"><p class="header-top-left-p-DKK">DKK</p></button>
                     </div>
-                    <div class="header-top-right">
-                        <form action="search.php" method="get">
+                    <div class="header-top-right ml-auto">
+                        <form action="search.php" class="d-flex" method="get">
                             <input type="text" class="search" name="search" placeholder="søgning i produkter">
                             <input type="submit" class="header-top-right-submit" value="søg" name="submit">
                         </form>
@@ -80,9 +81,9 @@
                         </ul>
                     </div>
                 </nav>
-                <div class="header-right-varer">
-                    <form action="varer.php" method="get">
-                        <input type="text" name="varer" class="header-right-varer-indkøbskuvr" placeholder="din indkøbskurv er tom">
+                <div class="header-right-varer  ml-auto mt-auto">
+                    <form action="varer.php" class="d-flex" method="get">
+                        <input type="text" name="varer" class="header-right-varer-cart" value="din indkøbskurv er tom">
                         <button class="header-right-varer-button" disabled="disabled"><i class="fa fa-shopping-cart" aria-hidden="true" style="font"></i></button>
                     </form>
                 </div>
@@ -125,22 +126,22 @@
         </div>
         <hr>
         <div class="container">
-            <aside class="aside-search">
+            <aside class="aside-search col-2">
             <h3 class="aside-search-categori">Kategorier:</h3>
-                <form action="search.php" method="get">
-                    <input type="button" value="jakker" name="jakker">
-                    <input type="button" value="jakker" name="bukser">
-                    <input type="button" value="jakker" name="skjorter">
-                    <input type="button" value="jakker" name="strik">
-                    <input type="button" value="jakker" name="t-shirts & tank tops">
-                    <input type="button" value="jakker" name="tasker">
+                <form action="search.php" class="d-flex flex-column" method="get">
+                    <input type="button" value="jakker" class="aside-categori-button bg-faded" name="jakker">
+                    <input type="button" value="bukser" class="aside-categori-button bg-faded" name="bukser">
+                    <input type="button" value="skjorter" class="aside-categori-button bg-faded" name="skjorter">
+                    <input type="button" value="strik" class="aside-categori-button bg-faded" name="strik">
+                    <input type="button" value="t-shirts & tank tops" class="aside-categori-button bg-faded" name="t-shirts">
+                    <input type="button" value="tasker" class="aside-categori-button bg-faded" name="tasker">
                 </form>
             </aside>
-            <aside class="login">
+            <aside class="login col-3 mt-2">
             <h3 class="nyhedsbrev">tilmeld nyhedsbrev</h3>
-            <form action="nyhedsbrev" method="post">
+            <form action="nyhedsbrev d-flex flex-column" method="post">
             <input type="text" name="username" placeholder="navn">
-            <<input type="text" name="email" placeholder="email">
+            <input type="text" name="email" placeholder="email">
             </form>
             </aside>
         </div>
