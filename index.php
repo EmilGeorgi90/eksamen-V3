@@ -1,3 +1,6 @@
+<?php
+require_once "include/connect.php";
+?>
 <html class="no-js" lang="">
 
 <head>
@@ -62,7 +65,7 @@
                         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                             <ul class="navbar-nav mr-auto mt-2 mt-md-0">
                                 <li class="nav-item active">
-                                    <a class="nav-link active" href="#">Forside <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="#">Forside <span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Produkter</a>
@@ -77,9 +80,25 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Om os</a>
                                 </li>
-                                <li class="nav-item">
+                                <?php
+                                if(!isset($_COOKIE[$cookie_name])){
+                         ?>
+                                    <li class="nav-item">
                                     <a class="nav-link" href="#">login</a>
                                 </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">register</a></li>
+                            
+<?php
+                                }else{
+?>
+                                <li class="nav-item">
+                                <a class="nav-link" href="include/logout.php">logout</a>
+                            </li>
+  <?php                      
+                                }
+?>
                             </ul>
                         </div>
                     </nav>
@@ -90,6 +109,7 @@
                         </form>
                     </div>
                 </div>
+                <div id="ajax-content"></div>
             </div>
         </header>
         <hr>
@@ -161,14 +181,20 @@
                             <h3>dametøj</h3><br><button class="toj" disabled="disabled">læs mere</button></div>
                     </div>
             </div>
-</div>
-            <div class="container">
-                <article class="content">
-
-                </article>
-            </div>
-            </main>
-            <div class="container-fluid p-0">
+        </div>
+        <div class="container ml-auto p-0">
+            <article class="content ml-auto">
+                <?php
+                    if(isset($_SESSION["search"])){
+                        include_once "include/seachOutput.php";
+                    }else{
+                        require_once "include/getArticle.php";
+                    }
+                    ?>
+            </article>
+        </div>
+        </main>
+        <div class="container-fluid p-0">
             <footer class="footer col-12 d-flex justify-content-between">
                 <p class="footer-p"><strong>Fancyclothes.dk</strong></p>
                 <p class="footer-p">Skrædderstien 7</p>
@@ -176,34 +202,34 @@
                 <p class="footer-p">Email: info@fancyness@gmail.com</p>
                 <p class="footer-p">Sitemap</p>
             </footer>
-            </div>
         </div>
+    </div>
 
-        <script>
-            window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')
 
-        </script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+    </script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function (b, o, i, l, e, r) {
-                b.GoogleAnalyticsObject = l;
-                b[l] || (b[l] =
-                    function () {
-                        (b[l].q = b[l].q || []).push(arguments)
-                    });
-                b[l].l = +new Date;
-                e = o.createElement(i);
-                r = o.getElementsByTagName(i)[0];
-                e.src = 'https://www.google-analytics.com/analytics.js';
-                r.parentNode.insertBefore(e, r)
-            }(window, document, 'script', 'ga'));
-            ga('create', 'UA-XXXXX-X', 'auto');
-            ga('send', 'pageview');
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function (b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l;
+            b[l] || (b[l] =
+                function () {
+                    (b[l].q = b[l].q || []).push(arguments)
+                });
+            b[l].l = +new Date;
+            e = o.createElement(i);
+            r = o.getElementsByTagName(i)[0];
+            e.src = 'https://www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X', 'auto');
+        ga('send', 'pageview');
 
-        </script>
+    </script>
 </body>
 
 </html>
