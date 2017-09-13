@@ -1,5 +1,8 @@
 @import url(_mixins.scss);
 @import url(_variable.scss);
+* {
+  font-family: 'Oswald', sans-serif; }
+
 body .header .header-top-left {
   display: flex; }
   body .header .header-top-left .header-top-left-button {
@@ -16,7 +19,8 @@ body .header .header-top-left {
 
 body .header .header-right-varer {
   align-items: center; }
-  body .header .header-right-varer .header-top-right form .search, body .header .header-right-varer .header-top-right-submit {
+  body .header .header-right-varer .header-top-right form .search,
+  body .header .header-right-varer .header-top-right-submit {
     border: 1px solid #dedede;
     padding: 3px; }
   body .header .header-right-varer form .header-right-varer-cart {
@@ -30,3 +34,94 @@ body .header .header-right-varer {
     margin: 0;
     padding: 15px;
     color: white; }
+
+body .nav-link {
+  color: black !important;
+  transition: 0.5s;
+  font-family: 'Oswald', sans-serif; }
+  body .nav-link:hover {
+    transition: 0.5s;
+    color: #4d4d4d !important; }
+
+body .active {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.5); }
+
+body .main-title {
+  font-family: 'Karla', sans-serif;
+  color: #666; }
+
+body .aside-search {
+  background-color: #c4c4c4;
+  margin-bottom: 25px;
+  opacity: 0.7;
+  padding: 0; }
+
+body .aside-search-categori {
+  font-family: 'Karla', sans-serif; }
+
+body .aside-categori-button {
+  border: none;
+  text-align: start;
+  padding-left: 20px;
+  padding-bottom: 15px;
+  background-color: #eaeaea;
+  width: 100%; }
+
+body .aside-nyhedsbrev {
+  background-color: #c4c4c4;
+  margin-bottom: 25px;
+  padding: 0; }
+
+body .div-nyhedsbrev {
+  background-color: #eaeaea;
+  width: 100%; }
+
+body .form-nyhedsbrev {
+  width: 100%; }
+
+body .herretoj {
+  background-image: url("../img/kategoriHerre.jpg");
+  color: #666;
+  flex-grow: 1;
+  height: 400px;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+  transition: 0.5s;
+  background-size: contain; }
+  body .herretoj:hover {
+    opacity: 1;
+    transition: 0.5s; }
+
+body .kvindetoj {
+  background-image: url("../img/kategoriKvinde.jpg");
+  color: #666;
+  opacity: 0.7;
+  flex-grow: 1;
+  height: 400px;
+  transition: 0.5s;
+  background-repeat: no-repeat;
+  background-size: contain; }
+  body .kvindetoj:hover {
+    opacity: 1;
+    transition: 0.5s; }
+
+body .toj {
+  background-color: transparent;
+  border: 2px solid black;
+  color: black;
+  text-align: center; }
+
+body .container > .toj {
+  font-family: 'Karla', sans-serif;
+  border: none;
+  color: #666; }
+
+body .flex-grow {
+  flex-grow: 1; }
+
+body .footer {
+  background-color: #dedede; }
+
+body .h3-nyhedsbrev {
+  font-family: 'Karla', sans-serif;
+  color: #666; }
