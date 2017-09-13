@@ -103,7 +103,7 @@ body {
         background-image: url("../img/kategoriHerre.jpg");
         color: #666;
         flex-grow: 1;
-        height: 400px;
+       height: 350px;
         background-repeat: no-repeat;
         opacity: 0.7;
         transition: 0.5s;
@@ -118,8 +118,11 @@ body {
         color: #666;
         opacity: 0.7;
         flex-grow: 1;
-        height: 400px;
-        transition: 0.5s;
+        @if(width == 720px){
+        max-height: 350px;
+        }@else{
+            height: 350px;
+        }transition: 0.5s;
         background-repeat: no-repeat;
         background-size: contain;
         &:hover {
@@ -202,7 +205,6 @@ main .submit {
 .content {
     @include background-color(darken($BackgroundColor,
     1%));
-    max-width: 75%;
     display: flex;
     justify-content: flex-end;
     padding-top: 10px;
@@ -217,22 +219,21 @@ main .submit {
     }
     .articel {
         text-align: center;
-        @include background-color(darken($BackgroundColor,
-        5%));
         border: 1px solid darken($BackgroundColor, 20%);
         margin: 5px 20px;
-        max-width: 30%;
+        padding: 0;
         div {
-            width: 98%;
-            margin: 0 auto;
+            width: 100%;
+            margin: 5px auto;
             float: left;
+            background: darken(#f0f0f0, 25%);
         }
         p {
             text-align: left;
             padding-left: 20px;
         }
         img {
-            max-width: 30%;
+            width: 100%;
             max-height: 30%;
             float: right;
         }
@@ -243,5 +244,13 @@ main .submit {
         .submit {
             margin: 0;
         }
+    }
+}
+@media screen and (max-width: 720px) {
+    .herretoj{
+        height: 150px !important;
+    }
+    .kvindetoj{
+        height: 150px !important;
     }
 }

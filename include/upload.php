@@ -2,7 +2,7 @@
 require "connect.php";
 include "function_test_input.php";
 $username = $_COOKIE[$cookie_name];
-$target_dir = "../img/";
+$target_dir = "img/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -50,19 +50,24 @@ if ($uploadOk == 0) {
     $description = test_input($_POST["articleText"]);
     $type = test_input($_POST["kategori"]);
     $rating = test_input($_POST["rating"]);
-    $overskirft = test_input($_POST["overskrift"]);
-  }
+    $overskrift = test_input($_POST["overskrift"]);
+
   try{
-        $target_file = "include/$target_file";
-        $sql = "INSERT INTO `articles`(`imgSrc`, `imgAlt`, `articleText`, `rating`, `kategori`, `overskrift`, `username`) VALUES (?,?,?,?,?,?,?); select login.username from login inner join content on login.username = content.username";
+      //takes the path for the img
+        $target_file = "$target_file";
+        //prepare the sql srcipt 
+        $sql = "INSERT INTO `articles`(`imgSrc`, `imgAlt`, `articleText`, `kategori`, `rating`, `overskrift`, `username`) VALUES (?,?,?,?,?,?,?); select login.username from login inner join content on login.username = content.username";
+        //prepare the query
         $statement = $conn->prepare($sql);
+        //binds parameter
         $statement->bindParam(1, $target_file);
             $statement->bindParam(2, $imgAlt);
             $statement->bindParam(3, $description);
             $statement->bindParam(4, $type);
-            $statement->bindParam(6, $rating);
-            $statement->bindParam(7, $overskrift);
-            $statement->bindParam(8, $_COOKIE[$cookie_name]);
+            $statement->bindParam(5, $rating);
+            $statement->bindParam(6, $overskrift);
+            $statement->bindParam(7, $_COOKIE[$cookie_name]);
+            //execute the query
             $statement->execute();
         header("location:../index.php");
         }
@@ -70,5 +75,4 @@ if ($uploadOk == 0) {
             echo $e->getMessage();
         }
 
-    }
 ?>

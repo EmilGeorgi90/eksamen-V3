@@ -2,7 +2,7 @@
 include "connect.php";
 if(isset($_COOKIE[$cookie_name])){
 ?>
-    <form action="include/upload.php" method="post" class="form-control" enctype="multipart/form-data">
+    <form action="include/upload.php" method="post" enctype="multipart/form-data">
         <input type="text" class="username" name="imgAlt" placeholder="img alt" required>
         <input type="text" class="username" name="articleText" placeholder="description" required>
         <label class="username" for="">kategory:
@@ -16,7 +16,7 @@ if(isset($_COOKIE[$cookie_name])){
             </select>
         </label>
         <label class="username">rating:
-            <select name="cardSet" id="">
+            <select name="rating" id="">
                 <option value="1">1 stjerne</option>
                 <option value="2">2 stjerner</option>
                 <option value="3">3 stjerner</option>
@@ -26,8 +26,8 @@ if(isset($_COOKIE[$cookie_name])){
         </label>
         <label class="username"> Select image to upload:
             <input type="file" name="fileToUpload" id="fileToUpload" required> </label>
-        <input type="text" class="username" name="overskrift" placeholder="card name" required>
-        <input type="submit" value="upload article " class="submit " name="submit " required> </form>
+        <input type="text" class="username" name="overskrift" placeholder="overskrift" required>
+        <input type="submit" value="upload article " name="submit " required> </form>
     <?php
 }else{
     header("location:../index.php");

@@ -12,9 +12,9 @@ $(document).ready(function () {
 
     //on click function
     $(".nav-link").on("click", function (event) {
+
         //looking if the link is logout because then we dont want to prevent default event
-        if ($(this).text() == "logout") {
-        } else {
+        if ($(this).text() != "logout") {
             //else we are assuming that it is a ajax element
             //then we prevent the jump to top event
             event.preventDefault();
@@ -28,8 +28,14 @@ $(document).ready(function () {
                     console.log("Error: " + xhr.status + ": " + xhr.statusText);
                 }
             });
+        } else {
+            console.log($(this).text());
+            console.log(event.isDefaultPrevented())
+            window.location.href = "include/logout.php"
+
         }
     });
+
     //update menu
     $("button").click(function (event) {
         //prevent the jump top event
