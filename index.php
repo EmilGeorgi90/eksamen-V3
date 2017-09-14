@@ -1,5 +1,6 @@
 <?php
 require_once "include/connect.php";
+session_start();
 ?>
     <html class="no-js" lang="">
 
@@ -39,7 +40,7 @@ require_once "include/connect.php";
                             <button class="header-top-left-button" disabled="disabled"><p class="header-top-left-p-DKK">DKK</p></button>
                         </div>
                         <div class="header-top-right ml-md-auto">
-                            <form action="seachForArticles.php" class="d-flex" method="get">
+                            <form action="include/seachForArticles.php" class="d-flex" method="get">
                                 <input type="text" class="search" name="search" placeholder="søgning i produkter">
                                 <input type="submit" class="header-top-right-submit" value="søg" name="submit">
                             </form>
@@ -153,29 +154,41 @@ require_once "include/connect.php";
             <div class="container d-flex flex-wrap p-0">
                 <div class="col-md-3 col-sm-12 m-0">
                     <aside class="aside-search">
-                        <h3 class="aside-search-categori">Kategorier:</h3>
-                        <form action="search.php" class="d-flex p-0 flex-column col-12" method="get">
-                            <input type="button" value="jakker" class="aside-categori-button bg-faded" name="jakker">
-                            <input type="button" value="bukser" class="aside-categori-button bg-faded" name="bukser">
-                            <input type="button" value="skjorter" class="aside-categori-button bg-faded" name="skjorter">
-                            <input type="button" value="strik" class="aside-categori-button bg-faded" name="strik">
-                            <input type="button" value="t-shirts & tank tops" class="aside-categori-button bg-faded" name="t-shirts">
-                            <input type="button" value="tasker" class="aside-categori-button bg-faded" name="tasker">
+                        <h5 class="aside-search-categori py-2 pl-3">Kategorier:</h5>
+                        <form action="include/search.php" class="d-flex p-0 flex-column col-12 bg-faded" method="post"><label class="d-flex pl-1" for="">jakker
+                            <input type="checkbox" value="jakker" class="aside-categori-button pt-4 bg-faded" name="jakker">
+                            </label>
+                            <label for=""> bukser
+                            <input type="checkbox" value="bukser" class="aside-categori-button bg-faded" name="bukser">
+                            </label>
+                            <label for="">skjorter
+                            <input type="checkbox" value="skjorter" class="aside-categori-button bg-faded" name="skjorter">
+                            </label>
+                            <label for="">strik
+                            <input type="checkbox" value="strik" class="aside-categori-button bg-faded" name="strik">
+                            </label>
+                            <label for=""> t-shirts & tank tops
+                            <input type="checkbox" value="t-shirts" class="aside-categori-button bg-faded" name="t-shirts">
+                            </label>
+                            <label for=""> tasker
+                            <input type="checkbox" value="tasker" class="aside-categori-button bg-faded" name="tasker">
+                            </label>
+                            <input type="submit" value="submit">
                         </form>
                     </aside>
                     <aside class="aside-nyhedsbrev d-flex flex-column col-12  mt-2">
-                        <h3 class="h3-nyhedsbrev">tilmeld nyhedsbrev</h3>
+                        <h5 class="h3-nyhedsbrev pl-3 pt-2">tilmeld nyhedsbrev</h5>
                         <form action="nyhedsbrev.php" class="form-nyhedsbrev" method="post">
                             <div class="div-nyhedsbrev justify-content-center py-3 d-flex col-12 flex-column">
-                                <input type="text" name="username" placeholder="navn">
-                                <input type="text" name="email" placeholder="email">
+                                <input type="text" class="mb-2 pl-2" name="username" placeholder="navn">
+                                <input type="text" name="email" class="pl-2" placeholder="email">
                             </div>
                             <input type="submit" class="col-4 mt-2 ml-3" value="submit">
                         </form>
                     </aside>
                 </div>
                 <div class="container flex-wrap col-md-9">
-                    <h5 class="toj">inspiration</h3>
+                    <h5 class="toj">inspiration</h5>
                         <hr>
                         <div class="row flex-grow col-md-12 justify-content-between p-0 m-0">
                             <div class="herretoj flex-1 mr-1">
@@ -184,12 +197,12 @@ require_once "include/connect.php";
                                 <h3>dametøj</h3><br><button class="toj" disabled="disabled">læs mere</button></div>
                         </div>
                         <div class="container col-md-12 m-0 p-0">
-                    <article class="content justify-content-center">
+                    <article class="content justify-content-center col-12 d-flex">
                         <?php
                     if(isset($_SESSION["search"])){
                         include_once "include/seachOutput.php";
                     }else{
-                        require_once "include/getArticle.php";
+                        include_once "include/getArticle.php";
                     }
                     ?>
                     </article>

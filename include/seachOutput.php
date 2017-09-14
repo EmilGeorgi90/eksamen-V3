@@ -1,52 +1,56 @@
 <?php
+$row = $_SESSION["search"];
 for($i = 0; $i < count($row); $i++){
-    //takes the input from $row into the tables;    
-    $_SESSION["currentArticle"][$i] = $row[$i];
-    ?>
-        <articel class="articel"> 
     
-            <h2 class="articel-title">product title: <?php echo $row[$i][ 'overskrift']?></h2>
-            <hr class="style14">
-            <div>
-            <p class="articel-p">kategori:
-                <?php echo $row[$i][ 'kategori']?>
+    //takes the input from $row into the tables;    
+    ?>
+    <articel class="articel justify-content-between d-flex flex-wrap flex-grow ">
+    <img src="<?php echo $row[$i][ 'imgSrc']?>" alt="
+                      <?php echo $row[$i][ 'imgAlt']?>" class="articel-img">
+        <h2 class="articel-title col-12">
+            <?php echo $row[$i][ 'overskrift']?>
+        </h2>
+       
+            <p class="articel-p col-12">
+                <?php for($j = 0; $j < $row[$i][ 'rating']; $j++){
+            echo "<i class='fa fa-star' aria-hidden='true'></i>";
+            }
+            if($j < 5){
+                    for ($k = $j; $k < 5; $k++){
+                        echo '<i class="fa fa-star-o" aria-hidden="true"></i>';
+        }} ?>
+         <div>  
             </p>
-            <p class="articel-p">rating:
-                <?php echo $row[$i][ 'rating']?>
-            </p>
-            <p class="articel-p">card description:
+            <p class="articel-p">
                 <?php echo $row[$i][ 'articleText']?>
             </p>
-            <p class="articel-p">uploaded:
+            <p class="articel-p">oprettet:
                 <?php echo $row[$i][ 'timestamp']?>
             </p>
-            <p class="articel-p">forfatter:
+            <p class="articel-p">af:
                 <?php echo $row[$i][ 'username']?>
             </p>
-            </div>
-            
-            <img src="<?php echo $row[$i][ 'imgSrc']?>" alt="
-                          <?php echo $row[$i][ 'imgAlt']?>" class="articel-img">
-            <?php 
-        //check if the cookies is set
-                                if(isset($_COOKIE[$cookie_name])){
-                                    //checking if the username are the same as blogger
-                if($row[$i]['username'] == $_COOKIE[$cookie_name] || $_COOKIE["userLevel"] > 1)
-        {
-            //the delete form        
+        </div>
+
+
+        <?php 
+    //check if the cookies is set
+                            if(isset($_COOKIE[$cookie_name])){
+                                //checking if the username are the same as blogger
+            if($row[$i]['username'] == $_COOKIE[$cookie_name] || $_COOKIE["userLevel"] > 1)
+    {
+        //the delete form        
+        ?>
+        <form action="include/delete.php" method="post">
+            <input type="" name="overskrift" hidden value="<?php echo $row[$i]['overskrift'] ?>">
+            <input type="submit" value="delete"> </form>
+
+            <?php
+            //if userlevel is bigger then 1 then you can delete anyway
+                    }}
             ?>
-                <form action="include/delete.php" method="post" class="form-control">
-                    <input type="text" name="cardName" hidden value="<?php echo $row[$i]['overskrift'] ?>">  
-                    <input type="submit" value="delete" class="submit"> </form>
-                    <div class="">
-                    <button class="submit" value="update">update
-                  
-                <?php
-                //if userlevel is bigger then 1 then you can delete anyway
-                        }}
-                ?>
-        </articel>
-        <?php
-                            
-                        }
-                        ?>
+    </articel>
+    <?php
+                        
+                    }
+                    ?>

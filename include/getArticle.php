@@ -15,14 +15,14 @@ $row = $stmt->fetchAll();
                     for($i = 0; $i < count($row); $i++){
 //takes the input from $row into the tables;    
 ?>
-    <articel class="articel justify-content-between m-1 col-md-3 col-sm-12">
+    <articel class="articel justify-content-between d-flex flex-wrap flex-grow ">
     <img src="<?php echo $row[$i][ 'imgSrc']?>" alt="
                       <?php echo $row[$i][ 'imgAlt']?>" class="articel-img">
-        <h2 class="articel-title">
+        <h2 class="articel-title col-12">
             <?php echo $row[$i][ 'overskrift']?>
         </h2>
        
-            <p class="articel-p">
+            <p class="articel-p col-12">
                 <?php for($j = 0; $j < $row[$i][ 'rating']; $j++){
             echo "<i class='fa fa-star' aria-hidden='true'></i>";
             }
@@ -30,7 +30,7 @@ $row = $stmt->fetchAll();
                     for ($k = $j; $k < 5; $k++){
                         echo '<i class="fa fa-star-o" aria-hidden="true"></i>';
         }} ?>
-         <div>
+         <div>  
             </p>
             <p class="articel-p">
                 <?php echo $row[$i][ 'articleText']?>

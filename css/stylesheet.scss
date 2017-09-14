@@ -3,22 +3,23 @@
 * {
     font-family: 'Oswald', sans-serif;
 }
-a{
+
+a {
     text-decoration: none;
     color: black;
     transition: 0.5s;
-    &:hover{
+    &:hover {
         text-decoration: none;
         color: lighten(black, 50%);
         transition: 0.5s;
     }
 }
+
 body {
     .header {
         .header-top-left {
             display: flex;
             .header-top-left-button {
-                line-height: 20px;
                 background-color: darken(#F7F7F7, 2%);
                 box-shadow: none;
                 border: 1px solid darken(#F7F7F7, 5%);
@@ -27,6 +28,9 @@ body {
                     padding-right: 3px;
                     width: 20px;
                 }
+            }
+            .header-top-left-button p{
+                margin-bottom: 0;
             }
             .header-top-left-button:nth-child(1) {
                 border-right: 2px solid darken(#F7F7F7, 10%);
@@ -69,12 +73,16 @@ body {
     .main-title {
         font-family: 'Karla', sans-serif;
         color: #666;
+        text-align: center;
     }
     .aside-search {
         background-color: darken(#F7F7F7, 20%);
         margin-bottom: 25px;
         opacity: 0.7;
         padding: 0;
+        form{
+            background-color: #eaeaea;
+        }
     }
     .aside-search-categori {
         font-family: 'Karla', sans-serif;
@@ -103,7 +111,7 @@ body {
         background-image: url("../img/kategoriHerre.jpg");
         color: #666;
         flex-grow: 1;
-       height: 350px;
+        height: 350px;
         background-repeat: no-repeat;
         opacity: 0.7;
         transition: 0.5s;
@@ -118,11 +126,7 @@ body {
         color: #666;
         opacity: 0.7;
         flex-grow: 1;
-        @if(width == 720px){
-        max-height: 350px;
-        }@else{
-            height: 350px;
-        }transition: 0.5s;
+        transition: 0.5s;
         background-repeat: no-repeat;
         background-size: contain;
         &:hover {
@@ -143,9 +147,6 @@ body {
     }
     .flex-grow {
         flex-grow: 1;
-    }
-    .footer {
-        background-color: darken(#F7F7F7, 10%);
     }
     .h3-nyhedsbrev {
         font-family: 'Karla', sans-serif;
@@ -185,7 +186,6 @@ body {
 .submit {
     text-align: center;
     flex-grow: 1;
-    
     margin: 0 15px;
     background-color: #F7F7F7;
     transition: 0.3s;
@@ -198,13 +198,12 @@ body {
         background-color: lighten(#F7F7F7, 10%);
     }
 }
+
 main .submit {
     width: 100%;
 }
 
 .content {
-    @include background-color(darken($BackgroundColor,
-    1%));
     display: flex;
     justify-content: flex-end;
     padding-top: 10px;
@@ -219,6 +218,7 @@ main .submit {
     }
     .articel {
         text-align: center;
+        max-width: 30%;
         border: 1px solid darken($BackgroundColor, 20%);
         margin: 5px 20px;
         padding: 0;
@@ -226,7 +226,7 @@ main .submit {
             width: 100%;
             margin: 5px auto;
             float: left;
-            background: darken(#f0f0f0, 25%);
+            background: darken(#f0f0f0, 5%);
         }
         p {
             text-align: left;
@@ -241,16 +241,24 @@ main .submit {
             width: 95%;
             margin: 3px auto;
         }
-        .submit {
-            margin: 0;
+        form {
+            width: 100%;
+            input {
+                margin: 0;
+                width: 100%;
+            }
         }
     }
 }
+
 @media screen and (max-width: 720px) {
-    .herretoj{
+    .herretoj {
         height: 150px !important;
     }
-    .kvindetoj{
+    .kvindetoj {
         height: 150px !important;
+    }
+    .content .articel {
+        max-width: 100%;
     }
 }

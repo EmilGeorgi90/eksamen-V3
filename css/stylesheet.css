@@ -13,7 +13,6 @@ a {
 body .header .header-top-left {
   display: flex; }
   body .header .header-top-left .header-top-left-button {
-    line-height: 20px;
     background-color: #f2f2f2;
     box-shadow: none;
     border: 1px solid #eaeaea; }
@@ -21,6 +20,8 @@ body .header .header-top-left {
       padding-top: 3.8px;
       padding-right: 3px;
       width: 20px; }
+  body .header .header-top-left .header-top-left-button p {
+    margin-bottom: 0; }
   body .header .header-top-left .header-top-left-button:nth-child(1) {
     border-right: 2px solid #dedede; }
 
@@ -55,13 +56,16 @@ body .active {
 
 body .main-title {
   font-family: 'Karla', sans-serif;
-  color: #666; }
+  color: #666;
+  text-align: center; }
 
 body .aside-search {
   background-color: #c4c4c4;
   margin-bottom: 25px;
   opacity: 0.7;
   padding: 0; }
+  body .aside-search form {
+    background-color: #eaeaea; }
 
 body .aside-search-categori {
   font-family: 'Karla', sans-serif; }
@@ -104,7 +108,6 @@ body .kvindetoj {
   color: #666;
   opacity: 0.7;
   flex-grow: 1;
-  height: 350px;
   transition: 0.5s;
   background-repeat: no-repeat;
   background-size: contain; }
@@ -125,9 +128,6 @@ body .container > .toj {
 
 body .flex-grow {
   flex-grow: 1; }
-
-body .footer {
-  background-color: #dedede; }
 
 body .h3-nyhedsbrev {
   font-family: 'Karla', sans-serif;
@@ -177,7 +177,6 @@ main .submit {
   width: 100%; }
 
 .content {
-  background-color: #f4f4f4;
   display: flex;
   justify-content: flex-end;
   padding-top: 10px;
@@ -191,6 +190,7 @@ main .submit {
     background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0); }
   .content .articel {
     text-align: center;
+    max-width: 30%;
     border: 1px solid #c4c4c4;
     margin: 5px 20px;
     padding: 0; }
@@ -198,7 +198,7 @@ main .submit {
       width: 100%;
       margin: 5px auto;
       float: left;
-      background: #b0b0b0; }
+      background: #e3e3e3; }
     .content .articel p {
       text-align: left;
       padding-left: 20px; }
@@ -209,11 +209,16 @@ main .submit {
     .content .articel .form-control {
       width: 95%;
       margin: 3px auto; }
-    .content .articel .submit {
-      margin: 0; }
+    .content .articel form {
+      width: 100%; }
+      .content .articel form input {
+        margin: 0;
+        width: 100%; }
 
 @media screen and (max-width: 720px) {
   .herretoj {
     height: 150px !important; }
   .kvindetoj {
-    height: 150px !important; } }
+    height: 150px !important; }
+  .content .articel {
+    max-width: 100%; } }
