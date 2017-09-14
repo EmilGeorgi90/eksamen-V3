@@ -18,16 +18,21 @@ $(document).ready(function () {
             //else we are assuming that it is a ajax element
             //then we prevent the jump to top event
             event.preventDefault();
-            //ajax load function
-            //the load i am using takes us into the folder include then it takes what i have taped on and then ajax it
-            $("#ajax-content").load("include/" + this.text + "-ajax.php", function (responseTxt, statusTxt, xhr) {
-                //if it success
-                if (statusTxt == "success") {}
-                //and if there are an error
-                else if (statusTxt == "error") {
-                    console.log("Error: " + xhr.status + ": " + xhr.statusText);
-                }
-            });
+            if ($(this).text() == "Produkter") {
+                var scrolling = $("main").height();
+                window.scrollTo(0, scrolling)
+            } else {
+                //ajax load function
+                //the load i am using takes us into the folder include then it takes what i have taped on and then ajax it
+                $("#ajax-content").load("include/" + this.text + "-ajax.php", function (responseTxt, statusTxt, xhr) {
+                    //if it success
+                    if (statusTxt == "success") {}
+                    //and if there are an error
+                    else if (statusTxt == "error") {
+                        console.log("Error: " + xhr.status + ": " + xhr.statusText);
+                    }
+                });
+            }
         } else {
             console.log($(this).text());
             console.log(event.isDefaultPrevented())
@@ -43,4 +48,14 @@ $(document).ready(function () {
         //finden children .update and slide it down
         $(this).children(".update").slideDown("slow");
     });
-})
+    $(".rediger").hide();
+    $(".læs-mere").on("click", function (event) {
+        event.preventDefault();
+        $(this).siblings(".rediger").slideToggle();
+        if ($(this).siblings(".card-text").height() == 70) {
+            $(this).siblings(".card-text").css("height", "auto");
+        } else {
+            $(this).siblings(".card-text").css("height", "70px");
+        }
+    })
+})  

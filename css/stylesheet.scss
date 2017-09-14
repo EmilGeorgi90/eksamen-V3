@@ -36,25 +36,31 @@ body {
                 border-right: 2px solid darken(#F7F7F7, 10%);
             }
         }
+        .logo{
+            width: 100px;
+            height: 100px;
+        }
         .header-right-varer {
             align-items: center;
             .header-top-right form .search,
             .header-top-right-submit {
-                border: 1px solid darken(#F7F7F7, 10%);
                 padding: 3px;
             }
             form .header-right-varer-cart {
+                border: none;
                 background-color: lighten(black, 10%);
                 color: white;
-                padding: 15px;
-                font-size: 1.1rem;
+                margin: 15px 0;
+                padding: 10px;
+                font-size: 0.9rem;
             }
             .header-right-varer-button {
                 background-color: lighten(black, 25%);
-                font-size: 1.1rem;
-                margin: 0;
-                padding: 15px;
+                font-size: 0.9rem;
+                margin: 15px 0;
+                padding: 10px;
                 color: white;
+                border: none;
             }
         }
     }
@@ -89,11 +95,11 @@ body {
     }
     .aside-categori-button {
         border: none;
-        text-align: start;
+        background-color: #eaeaea;
         padding-left: 20px;
         padding-bottom: 15px;
-        background-color: darken(#F7F7F7, 5%);
         width: 100%;
+        text-align: start;
     }
     .aside-nyhedsbrev {
         background-color: darken(#F7F7F7, 20%);
@@ -104,8 +110,17 @@ body {
         background-color: darken(#F7F7F7, 5%);
         width: 100%;
     }
+    .h3-nyhedsbrev{
+        padding-left: 25px;
+        line-height: 30px;
+    }
+
     .form-nyhedsbrev {
         width: 100%;
+        input{
+            border: none;
+            line-height: 30px;
+        }
     }
     .herretoj {
         background-image: url("../img/kategoriHerre.jpg");
@@ -159,16 +174,10 @@ body {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-around;}
     .username {
-        flex-grow: 1;
-        margin: 0 15px;
-        list-style: none;
-        text-align: center;
-        border: 2px solid darken(#F7F7F7, 20%);
-        box-shadow: inset 0 0 2px black;
-        line-height: 50px;
-        border-radius: 5px;
+        width: 100%;
+        margin: 0.4rem 0;
     }
     .password {
         text-align: center;
@@ -181,7 +190,6 @@ body {
         line-height: 50px;
         border-radius: 5px;
     }
-}
 
 .submit {
     text-align: center;
@@ -205,36 +213,33 @@ main .submit {
 
 .content {
     display: flex;
-    justify-content: flex-end;
+    flex-grow: 1;
+    justify-content: space-between;
     padding-top: 10px;
     flex-wrap: wrap;
-    hr.style14 {
-        border: 0;
-        height: 1px;
-        background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
-        background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
-        background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
-        background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
-    }
     .articel {
         text-align: center;
-        max-width: 30%;
+        flex-grow: 1;
+        max-width: 22%;
         border: 1px solid darken($BackgroundColor, 20%);
-        margin: 5px 20px;
+        margin: 10px 0;
         padding: 0;
-        div {
-            width: 100%;
-            margin: 5px auto;
-            float: left;
-            background: darken(#f0f0f0, 5%);
+        .læs-mere{
+            text-decoration: underline;
+            text-align: start;
         }
         p {
-            text-align: left;
-            padding-left: 20px;
+            padding-left: 10px;
+        }
+        > p{
+            text-align: center;
+        }
+        .article-text{
+            text-align: left
         }
         img {
             width: 100%;
-            max-height: 30%;
+            height: 200px;
             float: right;
         }
         .form-control {
@@ -247,6 +252,10 @@ main .submit {
                 margin: 0;
                 width: 100%;
             }
+        }
+        .star{
+            color: yellow;
+            text-align: center;
         }
     }
 }
@@ -261,4 +270,55 @@ main .submit {
     .content .articel {
         max-width: 100%;
     }
+    .img{
+        max-height: 250px !important;
+    }
+
 }
+
+.card-text-top{
+    background-color: #f0f0f0;
+    padding-bottom: 10px;
+}
+.card {
+    font-size: 1em;
+    overflow: hidden;
+    padding: 0;
+    border: none;
+    border-radius: .28571429rem;
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+}
+
+.card-block {
+    font-size: 1em;
+    position: relative;
+    margin: 0;
+    background-color: darken(#f0f0f0, 5%);
+    padding: 1em;
+    border: none;
+    border-top: 1px solid rgba(34, 36, 38, .1);
+    box-shadow: none;
+}
+
+.card-img-top {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.card-title {
+    font-size: 1.28571429em;
+    font-weight: 700;
+    line-height: 1.2857em;
+}
+
+.card-text {
+    clear: both;
+    margin-top: .5em;
+    font-size: 0.8rem;
+    height: 70px;
+    overflow: hidden;
+    color: rgba(0, 0, 0, .68);
+}
+
+

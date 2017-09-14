@@ -1,6 +1,7 @@
 <?php
 require_once "include/connect.php";
 session_start();
+$description = "webshop";
 ?>
     <html class="no-js" lang="">
 
@@ -8,9 +9,10 @@ session_start();
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>Home | webshop</title>
-        <meta name="description" content="webshop">
+        <meta name="description" content="<?php echo $description ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
         <link rel="stylesheet" href="bootstrap-4.0.0-alpha.6-dist/css/bootstrap.min.css">
@@ -24,6 +26,7 @@ session_start();
         <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/stylesheet.css">
         <link href="https://fonts.googleapis.com/css?family=Karla|Lato|Oswald" rel="stylesheet">
+
     </head>
 
     <body>
@@ -39,7 +42,7 @@ session_start();
                             <button class="header-top-left-button d-flex" disabled="disabled"><img src="img/ikon.png" alt="Danmark's flag" class="header-top-left-img"><p class="header-top-left-p-icon-span">dansk</p></button>
                             <button class="header-top-left-button" disabled="disabled"><p class="header-top-left-p-DKK">DKK</p></button>
                         </div>
-                        <div class="header-top-right ml-md-auto">
+                        <div class="header-top-right ml-auto">
                             <form action="include/seachForArticles.php" class="d-flex" method="get">
                                 <input type="text" class="search" name="search" placeholder="søgning i produkter">
                                 <input type="submit" class="header-top-right-submit" value="søg" name="submit">
@@ -51,7 +54,8 @@ session_start();
                 <div class="container m-auto">
                     <div class="row col-12">
                         <a href="index.php">
-                <img src="img/homeIcon.png" alt="tilbage til start menu"></a><?php if(isset($_COOKIE[$cookie_name])){echo "velkommen $_COOKIE[$cookie_name]"; } ?>
+                <img src="img/homeIcon.png" class="logo" alt="tilbage til start menu"></a>
+                        <?php if(isset($_COOKIE[$cookie_name])){echo "<h2>Velkommen $_COOKIE[$cookie_name]</h2>"; } ?>
                     </div>
                 </div>
                 <hr>
@@ -155,33 +159,21 @@ session_start();
                 <div class="col-md-3 col-sm-12 m-0">
                     <aside class="aside-search">
                         <h5 class="aside-search-categori py-2 pl-3">Kategorier:</h5>
-                        <form action="include/search.php" class="d-flex p-0 flex-column col-12 bg-faded" method="post"><label class="d-flex pl-1" for="">jakker
-                            <input type="checkbox" value="jakker" class="aside-categori-button pt-4 bg-faded" name="jakker">
-                            </label>
-                            <label for=""> bukser
-                            <input type="checkbox" value="bukser" class="aside-categori-button bg-faded" name="bukser">
-                            </label>
-                            <label for="">skjorter
-                            <input type="checkbox" value="skjorter" class="aside-categori-button bg-faded" name="skjorter">
-                            </label>
-                            <label for="">strik
-                            <input type="checkbox" value="strik" class="aside-categori-button bg-faded" name="strik">
-                            </label>
-                            <label for=""> t-shirts & tank tops
-                            <input type="checkbox" value="t-shirts" class="aside-categori-button bg-faded" name="t-shirts">
-                            </label>
-                            <label for=""> tasker
-                            <input type="checkbox" value="tasker" class="aside-categori-button bg-faded" name="tasker">
-                            </label>
-                            <input type="submit" value="submit">
+                        <form action="include/search.php" class="d-flex p-0 flex-column col-12 pt-3" method="post">
+                            <input type="button" value="jakker" class="aside-categori-button pt-2" name="jakker">
+                            <input type="button" value="bukser" class="aside-categori-button " name="bukser">
+                            <input type="button" value="skjorter" class="aside-categori-button " name="skjorter">
+                            <input type="button" value="strik" class="aside-categori-button " name="strik">
+                            <input type="button" value="t-shirts" class="aside-categori-button" name="t-shirts">
+                            <input type="button" value="tasker" class="aside-categori-button" name="tasker">
                         </form>
                     </aside>
                     <aside class="aside-nyhedsbrev d-flex flex-column col-12  mt-2">
-                        <h5 class="h3-nyhedsbrev pl-3 pt-2">tilmeld nyhedsbrev</h5>
+                        <h5 class="h3-nyhedsbrev pl-3 pt-2">Tilmeld nyhedsbrev</h5>
                         <form action="nyhedsbrev.php" class="form-nyhedsbrev" method="post">
                             <div class="div-nyhedsbrev justify-content-center py-3 d-flex col-12 flex-column">
-                                <input type="text" class="mb-2 pl-2" name="username" placeholder="navn">
-                                <input type="text" name="email" class="pl-2" placeholder="email">
+                                <input type="text" class="mb-2 pl-2" name="username" placeholder="Navn">
+                                <input type="text" name="email" class="pl-2" placeholder="Email">
                             </div>
                             <input type="submit" class="col-4 mt-2 ml-3" value="submit">
                         </form>
@@ -189,36 +181,44 @@ session_start();
                 </div>
                 <div class="container flex-wrap col-md-9">
                     <h5 class="toj">inspiration</h5>
-                        <hr>
-                        <div class="row flex-grow col-md-12 justify-content-between p-0 m-0">
-                            <div class="herretoj flex-1 mr-1">
-                                <h3>herretøj</h3><br><button class="toj" disabled="disabled">læs mere</button></div>
-                            <div class="kvindetoj flex-1  ml-1">
-                                <h3>dametøj</h3><br><button class="toj" disabled="disabled">læs mere</button></div>
-                        </div>
-                        <div class="container col-md-12 m-0 p-0">
-                    <article class="content justify-content-center col-12 d-flex">
-                        <?php
+                    <hr>
+                    <div class="row flex-grow col-md-12 justify-content-between p-0 m-0">
+                        <div class="herretoj flex-1 mr-1">
+                            <h3 class="pl-3 pt-2">Herretøj</h3><br><button class="toj ml-3" disabled="disabled">læs mere</button></div>
+                        <div class="kvindetoj flex-1  ml-1">
+                            <h3 class="pl-2 pt-2">Kvindetøj</h3><br><button class="toj ml-3" disabled="disabled">læs mere</button></div>
+                    </div>
+                    <div class="container col-md-12 m-0 p-0">
+                        <article class="content justify-content-between col-12 p-0 d-flex">
+                            <?php
                     if(isset($_SESSION["search"])){
                         include_once "include/seachOutput.php";
                     }else{
                         include_once "include/getArticle.php";
                     }
                     ?>
-                    </article>
-                </div>
+                        </article>
+                    </div>
                 </div>
 
             </div>
 
             </main>
-            <div class="container-fluid p-0 flex-wrap">
-                <footer class="footer col-12 d-flex flex-wrap justify-content-between">
+            <hr>
+            <div class="container-fluid mt-2 p-0 flex-wrap">
+                <footer class="footer col-12 d-flex flex-wrap">
+                    <div class="col-8 d-flex flex-wrap justify-content-around mx-auto">
                     <p class="footer-p"><strong>Fancyclothes.dk</strong></p>
                     <p class="footer-p">Skrædderstien 7</p>
                     <p class="footer-p">4321 Fredensvang</p>
                     <p class="footer-p">Email: info@fancyness@gmail.com</p>
                     <p class="footer-p">Sitemap</p>
+                    </div>
+                    <div class="font-awesome-footer col-12 d-flex justify-content-center">
+                    <i class="fa fa-facebook-square mx-2" aria-hidden="true"></i>
+                    <i class="fa fa-twitter-square mx-2" aria-hidden="true"></i>
+                    <i class="fa fa-youtube-square mx-2" aria-hidden="true"></i>
+                    </div>
                 </footer>
             </div>
         </div>
